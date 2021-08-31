@@ -9,15 +9,20 @@ const ToastsList = ({ toasts, onAction }) => {
     <div className="toasts-list">
 
         {
-          toasts.map((item, index) => (
-            <Toast
-              key={index}
-              id={item.id}
-              title={item.title}
-              message={item.message}
-              actions={item.actions}
-              onAction={onAction}
-            />
+          toasts.sort(function(a,b){
+            return new Date(b.createdAt) - new Date(a.createdAt);
+          }).map((item, index) => (
+            <div className="toast-wrapper">
+              <Toast
+                key={index}
+                id={item.id}
+                type={item.type}
+                title={item.title}
+                message={item.message}
+                actions={item.actions}
+                onAction={onAction}
+              />
+            </div>
           ))
         }
 

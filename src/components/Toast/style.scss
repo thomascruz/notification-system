@@ -1,0 +1,88 @@
+@import '../../assets/styles/main';
+
+.toast {
+  font-family: "Helvetica", sans-serif;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: 10px;
+
+  border: solid 2px $gray;
+  border-radius: 5px;
+
+  background-color: $light-gray;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+
+  .toast-header,
+  .toast-body,
+  .toast-actions {
+    max-width: 100%;
+    min-width: 100%;
+  }
+  
+  .toast-header {
+    margin-bottom: 5px;
+  }
+
+  .toast-body {
+    display: flex;
+    justify-content: flex-start;
+
+    .toast-icon {
+      padding-right: 10px;
+    }
+
+    .toast-content {
+      max-width: 80%;
+      flex-grow: 1;
+    }
+
+    .toast-close {
+      padding-left: 15px;
+      cursor: pointer;
+    }
+  }
+
+  .toast-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 25px;
+  }
+
+  .title {
+    font: normal normal 800 16px/22px $font-primary;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .message {
+    font: normal normal 400 14px/20px $font-primary;
+  }
+
+  // TYPES
+
+  &.success {
+    background-color: $light-green;
+    border-color: $green;
+  }
+
+  &.info {
+    background-color: $light-blue;
+    border-color: $blue;
+  }
+
+  &.error {
+    background-color: $light-red;
+    border-color: $red;
+  }
+
+  &.warning {
+    background-color: $light-yellow;
+    border-color: $yellow;
+  }
+
+}

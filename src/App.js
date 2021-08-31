@@ -1,16 +1,28 @@
-import ToastProvider from './providers/ToastProvider';
+import { useContext } from 'react';
+import { useToasts } from './providers/ToastProvider';
+
+import ToastsList from './components/ToastsList';
 
 import './main.scss';
 
 function App() {
+  const { toasts, onToastAction, createToast } = useToasts();
+
   return (
-    <ToastProvider>
-      <div className="App">
+    <div className="App">
 
-        
+      <ToastsList
+        toasts={toasts} 
+        onAction={onToastAction}
+      />
 
-      </div>
-    </ToastProvider>
+      <button
+        onClick={() => createToast("SUCCESS", "test" + new Date(), "test")}
+      >
+        Create toast
+      </button>
+
+    </div>
   );
 }
 

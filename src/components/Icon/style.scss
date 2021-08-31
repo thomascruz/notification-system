@@ -1,0 +1,76 @@
+@import '../../assets/styles/main';
+
+.icon {
+  display: inline-block;
+
+  height: 22px;
+  width: 22px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+
+  background-color: $black;
+
+  //
+  // ICONS
+  //
+
+  &.close {
+    -webkit-mask-image: url("../../assets/icons/close.svg?original");
+    mask-image: url("../../assets/icons/close.svg?original");
+  }
+
+  &.error {
+    -webkit-mask-image: url("../../assets/icons/error.svg?original");
+    mask-image: url("../../assets/icons/error.svg?original");
+  }
+
+  &.warning {
+    -webkit-mask-image: url("../../assets/icons/warning.svg?original");
+    mask-image: url("../../assets/icons/warning.svg?original");
+  }
+
+  &.info {
+    -webkit-mask-image: url("../../assets/icons/info.svg?original");
+    mask-image: url("../../assets/icons/info.svg?original");
+  }
+
+  &.success {
+    -webkit-mask-image: url("../../assets/icons/done.svg?original");
+    mask-image: url("../../assets/icons/done.svg?original");
+  }
+
+  &.white-color {
+    background-color: $white;
+  }
+
+  &.success-color {
+    background-color: $green;
+  }
+
+  &.info-color {
+    background-color: $blue;
+  }
+
+  &.warning-color {
+    background-color: $yellow;
+  }
+
+  &.default-color {
+    background-color: $gray;
+  }
+
+  &.error-color {
+    background-color: $red;
+  }
+
+  &.big {
+    height: 36px;
+    width: 36px;
+  }
+}
