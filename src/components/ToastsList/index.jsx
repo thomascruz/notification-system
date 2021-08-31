@@ -1,18 +1,34 @@
+import { useEffect, useState } from 'react';
 import Toast from '../Toast';
 
 import './style.scss';
 
 const ToastsList = ({ toasts, onAction }) => {
-  console.log(toasts);
+
+  const [closingStates, setClosingStates] = useState([]);
+
+  useEffect(() => {
+
+  }, []);
+  
+  const onToastAction = (id, action) => {
+
+    if (action === "DISMISS") {
+      setClosingStates([...closingStates, id]);
+
+      setTimeout(() => {
+        onAction(id, action);
+      }, 1000);
+    }
+
+  }
 
   return (
     <div className="toasts-list">
 
         {
-          toasts.sort(function(a,b){
-            return new Date(b.createdAt) - new Date(a.createdAt);
-          }).map((item, index) => (
-            <div className="toast-wrapper">
+          toasts.map((item, index) => (
+            <div className={`toast-wrapper ${closingStates.includes(item.id) ? 'closing' : ''}`}>
               <Toast
                 key={index}
                 id={item.id}
@@ -20,7 +36,7 @@ const ToastsList = ({ toasts, onAction }) => {
                 title={item.title}
                 message={item.message}
                 actions={item.actions}
-                onAction={onAction}
+                onAction={onToastAction}
               />
             </div>
           ))

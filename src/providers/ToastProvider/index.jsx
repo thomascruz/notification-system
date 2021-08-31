@@ -5,92 +5,7 @@ const ToastContext = createContext();
 
 const ToastProvider = ({ children }) => {
 
-  const [toasts, setToasts] = useState([
-    {
-      id: 1,
-      createdAt: new Date(),
-      type: "SUCCESS",
-      title: "Profile saved successfully",
-      message: "Your changes are live.",
-      actions: [
-        {
-          type: "LINK",
-          text: "View profile",
-          url: "https://google.com"
-        },
-        {
-          type: "ACTION",
-          text: "Undo changes",
-          action: () => {
-            alert("Undone");
-          }
-        },
-        {
-          type: "DISMISS",
-          text: "Ignore"
-        }
-      ],
-      options: {
-        expireTimeout: 5000
-      }
-    },
-    {
-      id: 1,
-      createdAt: new Date(),
-      type: "INFO",
-      title: "Profile saved successfully",
-      message: "Your changes are live.",
-      actions: [
-        {
-          type: "LINK",
-          text: "View profile",
-          url: "https://google.com"
-        },
-        {
-          type: "ACTION",
-          text: "Undo changes",
-          action: () => {
-            alert("Undone");
-          }
-        },
-        {
-          type: "DISMISS",
-          text: "Ignore"
-        }
-      ],
-      options: {
-        expireTimeout: 5000
-      }
-    },
-    {
-      id: 1,
-      createdAt: new Date(),
-      type: "SUCCESS",
-      title: "Profile saved successfully",
-      message: "Your changes are live.",
-      actions: [
-        {
-          type: "LINK",
-          text: "View profile",
-          url: "https://google.com"
-        },
-        {
-          type: "ACTION",
-          text: "Undo changes",
-          action: () => {
-            alert("Undone");
-          }
-        },
-        {
-          type: "DISMISS",
-          text: "Ignore"
-        }
-      ],
-      options: {
-        expireTimeout: 5000
-      }
-    }
-  ]);
+  const [toasts, setToasts] = useState([]);
 
   const createToast = (type, title, message, actions, options) => {
     const toastId = uuid(),
@@ -108,6 +23,10 @@ const ToastProvider = ({ children }) => {
     }
 
     setToasts([...toasts, tempToast]);
+  }
+
+  const setInitialToasts = (aToasts) => {
+    setToasts(aToasts);
   }
 
   const deleteToast = (id) => {
@@ -131,7 +50,7 @@ const ToastProvider = ({ children }) => {
     }
   }
 
-  const data = {toasts, createToast, onToastAction};
+  const data = {toasts, createToast, onToastAction, setInitialToasts};
 
   return (
     <ToastContext.Provider value={data}>

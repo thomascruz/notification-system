@@ -1,18 +1,18 @@
 @import '../../assets/styles/main';
 
 .toast {
-  font-family: "Helvetica", sans-serif;
 
   display: flex;
   flex-wrap: wrap;
-
+  
   padding: 10px;
-
+  
   border: solid 2px $gray;
   border-radius: 5px;
-
+  
+  font-family: "Helvetica", sans-serif;
   background-color: $light-gray;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
 
   .toast-header,
   .toast-body,
@@ -48,7 +48,7 @@
     display: flex;
     justify-content: flex-end;
 
-    margin-top: 25px;
+    margin-top: 20px;
   }
 
   .title {
