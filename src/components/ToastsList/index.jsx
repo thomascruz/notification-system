@@ -1,10 +1,25 @@
+import Toast from '../Toast';
+
 import './style.scss';
 
-function ToastsList() {
+const ToastsList = ({ toasts, onAction }) => {
+  console.log(toasts);
+
   return (
     <div className="toasts-list">
 
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores ducimus et odio eos adipisci, possimus, nulla ullam laudantium alias ipsam qui vitae non, voluptatum reiciendis cum quod incidunt ipsum suscipit.
+        {
+          toasts.map((item, index) => (
+            <Toast
+              key={index}
+              id={item.id}
+              title={item.title}
+              message={item.message}
+              actions={item.actions}
+              onAction={onAction}
+            />
+          ))
+        }
 
     </div>
   );

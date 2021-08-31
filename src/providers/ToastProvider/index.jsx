@@ -6,7 +6,7 @@ export const ToastContext = createContext();
 
 const ToastProvider = ({ children }) => {
 
-  const toasts = useState([
+  const [toasts, setToasts] = useState([
     {
       id: 1,
       createdAt: new Date(),
@@ -33,6 +33,8 @@ const ToastProvider = ({ children }) => {
   const onToastAction = (id, action, payload) => {
 
   }
+
+  console.log(toasts);
 
   return (
     <ToastContext.Provider value={{ toasts }}>
